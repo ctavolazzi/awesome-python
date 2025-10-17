@@ -4,6 +4,7 @@ A curated list of awesome Python frameworks, libraries, software and resources.
 
 Inspired by [awesome-php](https://github.com/ziadoz/awesome-php).
 
+- [Interactive Viewer](#interactive-viewer)
 - [Awesome Python](#awesome-python)
     - [Admin Panels](#admin-panels)
     - [Algorithms and Design Patterns](#algorithms-and-design-patterns)
@@ -103,6 +104,35 @@ Inspired by [awesome-php](https://github.com/ziadoz/awesome-php).
 - [Contributing](#contributing)
 
 ---
+
+## Interactive Viewer
+
+Want a fast way to browse the catalogue? Generate and serve the lightweight viewer in [`examples/awesome_viewer`](examples/awesome_viewer).
+
+```bash
+python examples/awesome_viewer/generate_site.py       # defaults to `build`
+python examples/awesome_viewer/generate_site.py serve
+# Or run the CLI as a module:
+python -m examples.awesome_viewer --output /tmp/viewer
+# Or use Makefile helpers (installs deps and serves on :8765):
+make viewer_install
+make viewer_build
+make viewer_serve
+```
+
+The `build` command writes the static site to `examples/awesome_viewer/build/`, including the compiled CSS
+and JavaScript bundles. It also saves `catalog.json` (the rendered data set) and `manifest.json` (build
+metadata and totals) beside `index.html` so you can sanity-check the output or plug the data into other
+tooling. Once the server is running, open the reported URL in your browser to filter the libraries
+interactively. The refreshed page still shows quick stats and instant search, but now includes a left-hand
+category navigator, keyboard-friendly shortcuts, and a step-through preview panel so you can move through
+the visible categories with clicks or the `[` and `]` keys. The CLI also previews every parsed
+category—tune the output with `--preview-limit` (or pass `0` to skip it) and add `--preview-mode step` when
+you would like the terminal preview to pause before rendering the next category. When standard input is not
+interactive (for example, in CI), the CLI automatically falls back to the list preview so builds never wait
+on user input. If you just run `python examples/awesome_viewer/generate_site.py` without a subcommand (or
+invoke `python -m examples.awesome_viewer`), the script now performs a build with whatever options you
+provided, making smoke tests and module execution terser.
 
 ## Admin Panels
 

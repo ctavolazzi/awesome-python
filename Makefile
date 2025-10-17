@@ -12,3 +12,12 @@ site_build: site_link
 
 site_deploy: site_link
 	mkdocs gh-deploy --clean
+
+viewer_install:
+	pip install -r examples/awesome_viewer/requirements.txt
+
+viewer_build:
+	python examples/awesome_viewer/generate_site.py build
+
+viewer_serve:
+	python examples/awesome_viewer/generate_site.py serve --port 8765

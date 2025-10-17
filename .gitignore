@@ -4,6 +4,7 @@
 
 docs/index.md
 site/
+examples/awesome_viewer/build/
 
 # PyCharm IDE
 .idea
