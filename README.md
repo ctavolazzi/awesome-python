@@ -4,6 +4,7 @@ A curated list of awesome Python frameworks, libraries, software and resources.
 
 Inspired by [awesome-php](https://github.com/ziadoz/awesome-php).
 
+- [Interactive Viewer](#interactive-viewer)
 - [Awesome Python](#awesome-python)
     - [Admin Panels](#admin-panels)
     - [Algorithms and Design Patterns](#algorithms-and-design-patterns)
@@ -103,6 +104,17 @@ Inspired by [awesome-php](https://github.com/ziadoz/awesome-php).
 - [Contributing](#contributing)
 
 ---
+
+## Interactive Viewer
+
+Want a fast way to browse the catalogue? Generate and serve the lightweight viewer in [`examples/awesome_viewer`](examples/awesome_viewer).
+
+```bash
+python examples/awesome_viewer/generate_site.py build
+python examples/awesome_viewer/generate_site.py serve
+```
+
+Once the server is running, open the reported URL in your browser to filter the libraries interactively.
 
 ## Admin Panels
 
