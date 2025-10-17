@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Awesome Python Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page">
+        <header class="panel hero">
+            <h1>Awesome Python Viewer</h1>
+            <p>Browse the curated catalogue with instant filtering, deep links, and a step-through preview.</p>
+            <ul class="stats" aria-live="polite">
+                <li><span>Visible categories</span><strong id="stat-categories">0</strong></li>
+                <li><span>Visible entries</span><strong id="stat-entries">0</strong></li>
+                <li><span>Total catalogue</span><strong id="stat-totals"></strong></li>
+            </ul>
+            <form class="filters" role="search" novalidate>
+                <label class="visually-hidden" for="search">Search the Awesome Python catalogue</label>
+                <input id="search" type="search" placeholder="Search by library, description, or keyword…" aria-label="Search entries" autocomplete="off" />
+                <div class="filter-actions">
+                    <button type="button" class="chip" id="clear-filters">Clear filters</button>
+                </div>
+            </form>
+        </header>
+        <section class="layout">
+            <aside class="sidebar" aria-label="Category filters">
+                <div>
+                    <h2>Categories</h2>
+                    <p>Select a category to focus the results. Use ↑/↓ then Enter for keyboard navigation.</p>
+                </div>
+                <nav aria-label="Categories">
+                    <ul id="category-list" class="category-list"></ul>
+                </nav>
+            </aside>
+            <div class="content">
+                <section class="panel focus-panel" aria-label="Step-through preview">
+                    <div class="focus-header">
+                        <div>
+                            <h2>Step through the catalogue</h2>
+                            <p>Use the controls or press [ and ] to move across the visible categories.</p>
+                        </div>
+                        <div class="focus-controls">
+                            <button type="button" id="focus-prev" aria-label="Show previous category">←</button>
+                            <span id="focus-position" aria-live="polite">0 / 0</span>
+                            <button type="button" id="focus-next" aria-label="Show next category">→</button>
+                        </div>
+                    </div>
+                    <article id="focus-card" class="focus-card" hidden>
+                        <div class="focus-header">
+                            <h3 id="focus-title"></h3>
+                            <span class="chip" id="focus-count"></span>
+                        </div>
+                        <ul id="focus-list" class="focus-list"></ul>
+                        <p id="focus-note" class="focus-note" hidden></p>
+                    </article>
+                    <p id="focus-empty" class="focus-note" hidden>Adjust your filters to preview matching categories one by one.</p>
+                </section>
+                <main id="results" class="results" aria-live="polite"></main>
+            </div>
+        </section>
+    </div>
+    <script>
+        window.APP_DATA = {{ data | tojson | safe }};
+        window.APP_TOTALS = {{ totals | tojson | safe }};
+    </script>
+    <script src="app.js" defer></script>
+</body>
+</html>
