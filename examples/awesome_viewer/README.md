@@ -42,3 +42,12 @@ python examples/awesome_viewer/generate_site.py serve --port 8765
 ```
 
 Then open `http://127.0.0.1:8765` in your browser and capture the visible portion of the page. The screenshot in the pull request description was produced with that flow and shows the header plus the first category rendered by the viewer. If you are debugging in a terminal-only environment, inspect the freshly written `build/catalog.json` and `build/manifest.json`—they contain the exact data and metadata used by the UI.
+```bash
+# From the repository root
+python examples/awesome_viewer/generate_site.py build
+python examples/awesome_viewer/generate_site.py serve --port 8000
+```
+
+The `build` command creates `examples/awesome_viewer/site/index.html`. The `serve` command rebuilds the page (unless you pass `--no-build`) and then serves the generated site locally using Python's built-in HTTP server. Open the reported URL in your browser to explore the list with live filtering.
+
+You can also supply a custom output directory or a different README file if you want to experiment with alternative data sources. Run `python examples/awesome_viewer/generate_site.py --help` to see the available options.
