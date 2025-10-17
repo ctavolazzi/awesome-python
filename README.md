@@ -133,6 +133,11 @@ interactive (for example, in CI), the CLI automatically falls back to the list p
 on user input. If you just run `python examples/awesome_viewer/generate_site.py` without a subcommand (or
 invoke `python -m examples.awesome_viewer`), the script now performs a build with whatever options you
 provided, making smoke tests and module execution terser.
+python examples/awesome_viewer/generate_site.py build
+python examples/awesome_viewer/generate_site.py serve
+```
+
+Once the server is running, open the reported URL in your browser to filter the libraries interactively.
 
 ## Admin Panels
 
